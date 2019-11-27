@@ -132,3 +132,15 @@ than GPT, but requires much more training time to converge.
 Language Understanding"
 [4]: https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf
      "Improving Language Understanding by Generative Pre-Training"
+
+## My fixes
+
+The repo didn't run as it was. I had to set keras version to 2.2.5 and tensorflow version to 1.4.0 to make it work. Moreover, I had to fix the keras_transformer/transformer.py file by changing these two lines:
+-from keras.layers import Layer, Add, activations, Dropout
+-from keras import initializers
++from keras.layers import Layer, Add, Dropout
++from keras import initializers, activations
+
+The solution for the keras version problem came from this issue:
+
+https://github.com/NTMC-Community/MatchZoo/issues/789#issuecomment-537099812
